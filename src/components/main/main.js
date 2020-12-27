@@ -24,10 +24,10 @@ function main(props) {
       else {
         console.log(res);
         setUserName(res[0].owner);
-        const storage=JSON.parse(localStorage.getItem('searchHistory') )
-        const userExist=storage.find(user=>user.name===res[0].owner.login)
+        let storage=JSON.parse(localStorage.getItem('searchHistory') )
+        const userExist=storage?.find(user=>user.name===res[0].owner.login)
         if(!userExist){
-          storage.push({name:res[0].owner.login,avatar:res[0].owner.avatar_url})
+          storage=storage?.push({name:res[0].owner.login,avatar:res[0].owner.avatar_url})
           localStorage.setItem('searchHistory',JSON.stringify(storage))
         }
         setRepositories(res);
@@ -76,7 +76,7 @@ function main(props) {
         </div>
         {/* {overview } */}
         <div className={modules.profile__overview}>
-          <h3 className={modules.overview__header}>Over view</h3>
+          <h3 className={modules.overview__header}>Overview</h3>
           <div className={modules.overview__container}>
             <OverviewCard main={language.label} label="Top language" />
             <OverviewCard main={forks} label="forks" />
