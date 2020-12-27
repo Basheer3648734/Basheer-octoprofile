@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import modules from './SearchHistory.module.css'
 
 import UserComponent from './user_component/UserComponent'

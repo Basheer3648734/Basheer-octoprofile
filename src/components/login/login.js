@@ -12,7 +12,10 @@ function login() {
   const [showModal,setShowModal]=useState({status:false,message:''})
 
   const getUserHistory=()=>{
-    setUserHistory(JSON.parse(localStorage.getItem('searchHistory')))
+    let a=localStorage.getItem('searchHistory')
+    if(a!=null || a!=undefined){
+    setUserHistory(JSON.parse(a))
+    }
   }
   useEffect(getUserHistory,[])
  const clearAllHistory=(e)=>{

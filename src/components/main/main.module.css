@@ -13,6 +13,7 @@
 .profile__avatar {
   width: 100px;
   height: 100px;
+  overflow: hidden;
   object-fit: contain;
   border-radius: 50%;
   border: 7px solid blue;

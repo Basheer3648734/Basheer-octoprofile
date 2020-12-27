@@ -7,6 +7,7 @@ import ProfileCard from "../profile-cards/profile_cards";
 import OverviewCard from "../overview_cards/Overview_card";
 import Footer from "../footer/footer";
 import { useParams } from "react-router-dom";
+import Modal from "../modal/Modal"
 function main(props) {
   // const [imageUrl, setImageUrl] = useState("");
   const [repositories, setRepositories] = useState([]);
@@ -17,44 +18,54 @@ function main(props) {
   const [followers, setFollowers] = useState(0);
   const [following, setFollowing] = useState(0);
   const { user } = useParams();
+  const [error,setError]=useState(false)
   useEffect(() => {
+    try{
     var me = new GhPolyglot(user);
     me.getAllRepos((err, res) => {
-      if (err) console.log(err);
+      if (err) {
+        console.log(err);}
       else {
-        console.log(res);
+        // console.log(res);
         setUserName(res[0].owner);
-        let storage=JSON.parse(localStorage.getItem('searchHistory') )
-        const userExist=storage?.find(user=>user.name===res[0].owner.login)
-        if(!userExist){
-          storage=storage?.push({name:res[0].owner.login,avatar:res[0].owner.avatar_url})
-          localStorage.setItem('searchHistory',JSON.stringify(storage))
-        }
+      
         setRepositories(res);
         setForks(res.reduce((initial, res) => initial + res.forks_count, 0));
         setStars(
           res.reduce((initial, res) => initial + res.stargazers_count, 0)
         );
+        let storage=JSON.parse(localStorage.getItem('searchHistory') )
+        if(!storage){
+            localStorage.setItem('searchHistory',JSON.stringify([{name:res[0].owner.login,avatar:res[0].owner.avatar_url}]))
+        }
+        const userExist=storage?.find(user=>(user.name===res[0].owner.login))
+        if(!userExist){
+        storage.push({name:res[0].owner.login,avatar:res[0].owner.avatar_url})
+         localStorage.setItem('searchHistory',JSON.stringify(storage))
       }
+    }
     });
     me.userStats((err, res) => {
       if (err) {
         console.log(err);
       } else {
         const top = res.sort((a, b) => (a.value < b.value ? 1 : -1));
-        console.log(top);
+        // console.log(top);
         setLanguage(top[0]);
       }
     });
-    fetch("https://api.github.com/users/Basheer3648734")
+    fetch(`https://api.github.com/users/${user}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setFollowers(data.followers);
         setFollowing(data.following);
-      });
+      })}
+      catch(e){
+        setError(true)
+      }
   }, [user]);
-  console.log(useParams());
+  // console.log(useParams());
   return (
     <div className={modules.main}>
       <div className={modules.main__profile}>
@@ -103,6 +114,7 @@ function main(props) {
         {/* footer */}
         <Footer />
       </div>
+      {error?(<modal>API limit exceeded! Try after sometime</modal>):null}
     </div>
   );
 }
