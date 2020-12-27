@@ -1,0 +1,28 @@
+.profile_card {
+  background: #24292e;
+  padding: 20px 10px;
+  text-align: center;
+  width: 180px;
+  margin: 5px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.profile_card__count {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.profile_card__label {
+  font-weight: 400;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+@media (max-width: 576px) {
+  .profile_card {
+    width: 100px;
+  }
+  .profile_card__count {
+    font-size: 1.2rem;
+  }
+  .profile_card__label {
+    font-size: 1rem;
+  }
+}

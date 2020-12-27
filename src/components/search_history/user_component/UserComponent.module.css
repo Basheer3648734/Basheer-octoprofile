@@ -1,0 +1,47 @@
+.userComponent {
+  margin: 10px 0px;
+  height: 4vh;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0px;
+  align-items: center;
+  background-color: #16191d;
+}
+.userComponent__image {
+  width: 30px;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.userComponent__name {
+  font-weight: 500;
+}
+.userComponent:hover > .userComponent__button {
+  visibility: visible;
+}
+.userComponent__name > span {
+  color: white;
+  cursor: pointer;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+}
+
+.userComponent__name > span:hover {
+  text-decoration: underline;
+}
+.userComponent__button {
+  width: 30px;
+  height: 30px;
+  background: none;
+  color: rgb(252, 55, 55);
+  border: none;
+  font-size: 10px;
+  visibility: hidden;
+}
+.userComponent__button:hover {
+  background-color: rgb(252, 55, 55);
+  color: black;
+  border-radius: 50%;
+}

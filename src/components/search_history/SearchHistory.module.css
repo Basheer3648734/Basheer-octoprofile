@@ -1,0 +1,46 @@
+.SearchHistory {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  padding: 10px 5px;
+}
+.SearchHistory__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.SearchHistory__main > h3 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+.SearchHistory__main > button {
+  padding: 5px 10px;
+  background: none;
+  border: 2px solid rgba(252, 55, 55);
+  color: rgb(252, 55, 55);
+  font-weight: 400;
+}
+.SearchHistory__main > button:hover {
+  background-color: rgb(252, 55, 55);
+  color: black;
+}
+@media (max-width: 999px) {
+  .SearchHistory {
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  .SearchHistory {
+    width: 70%;
+  }
+}
+@media (max-width: 576px) {
+  .SearchHistory {
+    width: 80%;
+    padding: 5px 2px;
+  }
+}

@@ -1,0 +1,11 @@
+.modal {
+  position: absolute;
+  width: 50%;
+  transition: all 1s;
+  opacity: 1;
+  text-align: center;
+  padding: 10px;
+  z-index: 100;
+  font-size: 20px;
+  background-color: #16191d;
+}

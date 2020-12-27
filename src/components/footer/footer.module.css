@@ -1,0 +1,14 @@
+.footer {
+  margin: 20px 0px;
+  font-size: 1rem;
+  letter-spacing: 0.8px;
+}
+.footer__paragraph > a {
+  color: white;
+  font-weight: 800;
+  opacity: 0.8;
+  text-decoration: none;
+}
+.footer__paragraph > a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,26 @@
+.repo_card > a {
+  width: 250px;
+  height: 130px;
+  background: white;
+  color: black;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.repo_card__header {
+  font-size: 16px;
+  align-self: center;
+}
+.repo_card__description {
+  margin: 10px 0px;
+  height: 100px;
+}
+.repo_card__stats {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-evenly;
+}
